@@ -41,7 +41,8 @@ jspm_packages
 .node_repl_history
 
 # Temporary files
-tmp/
+tmp/*.*
+!tmp/.gitkeep
 
 # OSX
 .DS_Store
