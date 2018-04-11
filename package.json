@@ -11,7 +11,8 @@
 		"url": "f1lt3r.io"
 	},
 	"scripts": {
-		"test": "xo && npm run cover",
+		"test_2": "xo && npm run cover",
+		"test": "npm run cover",
 		"unit": "ava",
 		"watch": "ava --watch",
 		"cover": "nyc --reporter=lcov --reporter=html --reporter=text ava *.test.js --verbose",
