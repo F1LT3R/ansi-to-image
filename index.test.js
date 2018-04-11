@@ -33,7 +33,7 @@ test('Basic example', async t => {
 
 	const expectedImg = image(ref)
 	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
+	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height, {threshold: 0.3})
 	t.true(threshold < imgDiffPassThreshold)
 
 	// // Open
