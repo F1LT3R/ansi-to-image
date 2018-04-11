@@ -7,7 +7,7 @@ import open from 'open'
 import ansiToImage from '.'
 
 const generateRefs = false
-const imgDiffPassThreshold = 500
+const imgDiffPassThreshold = 1000
 
 const fixtures = {
 	chalkBaseStylesANSI: String(fs.readFileSync('./fixtures/fixture.chalk-styles.ansi'))
