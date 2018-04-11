@@ -29,6 +29,8 @@ test('Basic example', async t => {
 		scale: 2
 	})
 
+	console.log('data:image/png;base64,' + fs.readFileSync(tmp, {encoding: 'base64'}))
+
 	const expectedImg = image(ref)
 	const actualImg = image(tmp)
 	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
