@@ -14,7 +14,7 @@
 		"test": "xo && npm run cover",
 		"unit": "ava",
 		"watch": "ava --watch",
-		"cover": "nyc --reporter=lcov --reporter=html --reporter=text ava *.test.js",
+		"cover": "nyc --reporter=lcov --reporter=html --reporter=text ava *.test.js --verbose",
 		"coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls -v",
 		"precommit": "npm test"
 	},
