@@ -11,12 +11,12 @@
 		"url": "f1lt3r.io"
 	},
 	"scripts": {
-		"test": "xo && yarn run cover",
+		"test": "xo && npm run cover",
 		"unit": "ava",
 		"watch": "ava --watch",
 		"cover": "nyc --reporter=lcov --reporter=html --reporter=text ava *.test.js",
 		"coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls -v",
-		"precommit": "yarn test"
+		"precommit": "npm test"
 	},
 	"files": [
 		"index.js"
