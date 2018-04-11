@@ -40,171 +40,171 @@ test('Basic example', async t => {
 	// open(tmp)
 })
 
-test('iTerm2Colors colors file', async t => {
-	const ansiText = chalk`Your {red $wish}\n is {bgYellow.cyan my} command.`
-	const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
+// test('iTerm2Colors colors file', async t => {
+// 	const ansiText = chalk`Your {red $wish}\n is {bgYellow.cyan my} command.`
+// 	const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
 
-	const ref = 'examples/iterm2colors-file.png'
-	const tmp = 'tmp/iterm2colors-file.png'
+// 	const ref = 'examples/iterm2colors-file.png'
+// 	const tmp = 'tmp/iterm2colors-file.png'
 
-	const result = await ansiToImage(ansiText, {
-		filename: generateRefs ? ref : tmp,
-		colors: colorFile
-	})
+// 	const result = await ansiToImage(ansiText, {
+// 		filename: generateRefs ? ref : tmp,
+// 		colors: colorFile
+// 	})
 
-	const expectedImg = image(ref)
-	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
-	t.true(threshold < imgDiffPassThreshold)
+// 	const expectedImg = image(ref)
+// 	const actualImg = image(tmp)
+// 	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
+// 	t.true(threshold < imgDiffPassThreshold)
 
-	// // Open
-	// open(ref)
-})
+// 	// // Open
+// 	// open(ref)
+// })
 
-test('Emojis', async t => {
-	const ansiText = chalk.bgRed('🌈') +
-		chalk.bgYellow('🦄') +
-		chalk.bgGreen('🐘') +
-		chalk.bgCyan('🍄') +
-		chalk.bgBlue('🎃') +
-		chalk.bgMagenta('🐦') +
-		chalk.bgRed('🖤') +
-		chalk.bgYellow('😳') +
-		chalk.bgGreen('😒') +
-		chalk.bgCyan('😮') +
-		chalk.bgBlue('😐') +
-		chalk.bgMagenta('😱') +
-		chalk.bgRed('😕') +
-		chalk.bgYellow('😕') +
-		chalk.bgGreen('😑') +
-		chalk.bgCyan('😘')
+// test('Emojis', async t => {
+// 	const ansiText = chalk.bgRed('🌈') +
+// 		chalk.bgYellow('🦄') +
+// 		chalk.bgGreen('🐘') +
+// 		chalk.bgCyan('🍄') +
+// 		chalk.bgBlue('🎃') +
+// 		chalk.bgMagenta('🐦') +
+// 		chalk.bgRed('🖤') +
+// 		chalk.bgYellow('😳') +
+// 		chalk.bgGreen('😒') +
+// 		chalk.bgCyan('😮') +
+// 		chalk.bgBlue('😐') +
+// 		chalk.bgMagenta('😱') +
+// 		chalk.bgRed('😕') +
+// 		chalk.bgYellow('😕') +
+// 		chalk.bgGreen('😑') +
+// 		chalk.bgCyan('😘')
 
-	const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
+// 	const colorFile = './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
 
-	const ref = 'examples/emojis.png'
-	const tmp = 'tmp/emojis.png'
+// 	const ref = 'examples/emojis.png'
+// 	const tmp = 'tmp/emojis.png'
 
-	const result = await ansiToImage(ansiText, {
-		filename: generateRefs ? ref : tmp,
-		colors: colorFile
-	})
+// 	const result = await ansiToImage(ansiText, {
+// 		filename: generateRefs ? ref : tmp,
+// 		colors: colorFile
+// 	})
 
-	const expectedImg = image(ref)
-	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
-	t.true(threshold < imgDiffPassThreshold)
+// 	const expectedImg = image(ref)
+// 	const actualImg = image(tmp)
+// 	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
+// 	t.true(threshold < imgDiffPassThreshold)
 
-	// // Open
-	// open(ref)
-})
+// 	// // Open
+// 	// open(ref)
+// })
 
-test('Chalk base styles', async t => {
-	const ansiText = fixtures.chalkBaseStylesANSI
+// test('Chalk base styles', async t => {
+// 	const ansiText = fixtures.chalkBaseStylesANSI
 
-	const ref = 'examples/chalk-base-styles.png'
-	const tmp = 'tmp/chalk-base-styles.png'
+// 	const ref = 'examples/chalk-base-styles.png'
+// 	const tmp = 'tmp/chalk-base-styles.png'
 
-	const result = await ansiToImage(ansiText, {
-		filename: generateRefs ? ref : tmp,
-		colors: './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
-	})
+// 	const result = await ansiToImage(ansiText, {
+// 		filename: generateRefs ? ref : tmp,
+// 		colors: './fixtures/base16-flat-dark-f1lt3r-256.itermcolors'
+// 	})
 
-	const expectedImg = image(ref)
-	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
-	t.true(threshold < imgDiffPassThreshold)
+// 	const expectedImg = image(ref)
+// 	const actualImg = image(tmp)
+// 	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
+// 	t.true(threshold < imgDiffPassThreshold)
 
-	// // Open
-	// open(ref)
-})
+// 	// // Open
+// 	// open(ref)
+// })
 
-test('Powerline font compatibility', async t => {
-	const ansiText = chalk` {bgGreen.white Testing background colors } butting adjacent lines. \n` +
-		chalk` {red ✘ }{bgBlue.black  ~/repos/minkjs/ansi-to }{bgYellow.blue  }{bgYellow.black  svg-image-plugins ● }{yellow } ava powerline-fonts.test.js \n` +
-		chalk`  {green 1 passed}`
+// test('Powerline font compatibility', async t => {
+// 	const ansiText = chalk` {bgGreen.white Testing background colors } butting adjacent lines. \n` +
+// 		chalk` {red ✘ }{bgBlue.black  ~/repos/minkjs/ansi-to }{bgYellow.blue  }{bgYellow.black  svg-image-plugins ● }{yellow } ava powerline-fonts.test.js \n` +
+// 		chalk`  {green 1 passed}`
 
-	const ref = 'examples/powerline-font.png'
-	const tmp = 'tmp/powerline-font.png'
+// 	const ref = 'examples/powerline-font.png'
+// 	const tmp = 'tmp/powerline-font.png'
 
-	const result = await ansiToImage(ansiText, {
-		filename: generateRefs ? ref : tmp,
-		colors: './fixtures/base16-flat-dark-f1lt3r-256.itermcolors',
-		fontFamily: 'SauceCodePro Nerd Font'
-	})
+// 	const result = await ansiToImage(ansiText, {
+// 		filename: generateRefs ? ref : tmp,
+// 		colors: './fixtures/base16-flat-dark-f1lt3r-256.itermcolors',
+// 		fontFamily: 'SauceCodePro Nerd Font'
+// 	})
 
-	const expectedImg = image(ref)
-	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
-	t.true(threshold < imgDiffPassThreshold)
+// 	const expectedImg = image(ref)
+// 	const actualImg = image(tmp)
+// 	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
+// 	t.true(threshold < imgDiffPassThreshold)
 
-	// // Open
-	// open(ref)
-})
+// 	// // Open
+// 	// open(ref)
+// })
 
-test('Light iTerm2 color scheme', async t => {
-	const ansiText = fixtures.chalkBaseStylesANSI
+// test('Light iTerm2 color scheme', async t => {
+// 	const ansiText = fixtures.chalkBaseStylesANSI
 
-	const ref = 'examples/light-iterm2-color-scheme.png'
-	const tmp = 'tmp/light-iterm2-color-scheme.png'
+// 	const ref = 'examples/light-iterm2-color-scheme.png'
+// 	const tmp = 'tmp/light-iterm2-color-scheme.png'
 
-	const result = await ansiToImage(ansiText, {
-		filename: generateRefs ? ref : tmp,
-		colors: './fixtures/base16-tomorrow-256.itermcolors'
-	})
+// 	const result = await ansiToImage(ansiText, {
+// 		filename: generateRefs ? ref : tmp,
+// 		colors: './fixtures/base16-tomorrow-256.itermcolors'
+// 	})
 
-	const expectedImg = image(ref)
-	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
-	t.true(threshold < imgDiffPassThreshold)
+// 	const expectedImg = image(ref)
+// 	const actualImg = image(tmp)
+// 	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
+// 	t.true(threshold < imgDiffPassThreshold)
 
-	// // Open
-	// open(ref)
-})
+// 	// // Open
+// 	// open(ref)
+// })
 
-test('Padding', async t => {
-	const ansiText = chalk`{red.bold padding} {green.italic woo!}`
+// test('Padding', async t => {
+// 	const ansiText = chalk`{red.bold padding} {green.italic woo!}`
 
-	const ref = 'examples/padding.png'
-	const tmp = 'tmp/padding.png'
+// 	const ref = 'examples/padding.png'
+// 	const tmp = 'tmp/padding.png'
 
-	const result = await ansiToImage(ansiText, {
-		filename: generateRefs ? ref : tmp,
-		colors: './fixtures/base16-flat-dark-f1lt3r-256.itermcolors',
-		paddingTop: 14,
-		paddingLeft: 14,
-		paddingRight: 14,
-		paddingBottom: 14
-	})
+// 	const result = await ansiToImage(ansiText, {
+// 		filename: generateRefs ? ref : tmp,
+// 		colors: './fixtures/base16-flat-dark-f1lt3r-256.itermcolors',
+// 		paddingTop: 14,
+// 		paddingLeft: 14,
+// 		paddingRight: 14,
+// 		paddingBottom: 14
+// 	})
 
-	const expectedImg = image(ref)
-	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
-	t.true(threshold < imgDiffPassThreshold)
+// 	const expectedImg = image(ref)
+// 	const actualImg = image(tmp)
+// 	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
+// 	t.true(threshold < imgDiffPassThreshold)
 
-	// // Open
-	// open(ref)
-})
+// 	// // Open
+// 	// open(ref)
+// })
 
-test('Save jpeg: 0% quality, scale 1', async t => {
-	const ansiText = fixtures.chalkBaseStylesANSI
+// test('Save jpeg: 0% quality, scale 1', async t => {
+// 	const ansiText = fixtures.chalkBaseStylesANSI
 
-	const ref = 'examples/jpeg-0-percent-quality.jpg'
-	const tmp = 'tmp/jpeg-0-percent-quality.jpg'
+// 	const ref = 'examples/jpeg-0-percent-quality.jpg'
+// 	const tmp = 'tmp/jpeg-0-percent-quality.jpg'
 
-	const result = await ansiToImage(ansiText, {
-		filename: generateRefs ? ref : tmp,
-		colors: './fixtures/base16-flat-dark-f1lt3r-256.itermcolors',
-		type: 'jpeg',
-		quality: 0,
-		scale: 1
-	})
+// 	const result = await ansiToImage(ansiText, {
+// 		filename: generateRefs ? ref : tmp,
+// 		colors: './fixtures/base16-flat-dark-f1lt3r-256.itermcolors',
+// 		type: 'jpeg',
+// 		quality: 0,
+// 		scale: 1
+// 	})
 
-	const expectedImg = image(ref)
-	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
-	t.true(threshold < imgDiffPassThreshold)
+// 	const expectedImg = image(ref)
+// 	const actualImg = image(tmp)
+// 	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height)
+// 	t.true(threshold < imgDiffPassThreshold)
 
-	// // Open
-	// open(ref)
-	// open(tmp)
-})
+// 	// // Open
+// 	// open(ref)
+// 	// open(tmp)
+// })
