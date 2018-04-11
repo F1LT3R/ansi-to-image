@@ -7,7 +7,7 @@ import open from 'open'
 import ansiToImage from '.'
 
 const generateRefs = false
-const imgDiffPassThreshold = 100
+const imgDiffPassThreshold = 200
 
 const fixtures = {
 	chalkBaseStylesANSI: String(fs.readFileSync('./fixtures/fixture.chalk-styles.ansi'))
@@ -33,7 +33,7 @@ test('Basic example', async t => {
 
 	const expectedImg = image(ref)
 	const actualImg = image(tmp)
-	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height, {threshold: 0.3})
+	const threshold = pixelmatch(expectedImg, actualImg, null, result.size.width, result.size.height, {threshold: 0.4})
 	t.true(threshold < imgDiffPassThreshold)
 
 	// // Open
