@@ -4,7 +4,7 @@ const svgToDataURL = require('svg-to-dataurl')
 const puppeteer = require('puppeteer')
 
 const saveImage = async (url, opts, dimensions) => {
-	const browser = await puppeteer.launch()
+	const browser = await puppeteer.launch({args: ['--no-sandbox']})
 	const page = await browser.newPage()
 
 	page.setViewport({
